@@ -41,7 +41,7 @@ namespace DataRecord.View
 				string selectedImagePath = openFileDialog.FileName;
 				string fileName = System.IO.Path.GetFileName(selectedImagePath);
 
-				// 创建应用程序文件夹用于存储图片
+				// 用來儲存圖片的路徑
 				if (!Directory.Exists(appImagePath))
 				{
 					Directory.CreateDirectory(appImagePath);
@@ -67,7 +67,7 @@ namespace DataRecord.View
 			if (MessageBox.Show("Are you sure you want to delete this note?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
 			{
 				DatabaseHelper.Delete(note);
-				DialogResult = false; // 設置為 false 表示刪除操作
+				DialogResult = false;
 			}
 		}
 

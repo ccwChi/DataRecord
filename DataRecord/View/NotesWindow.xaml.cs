@@ -25,7 +25,7 @@ namespace DataRecord.View
 
 		private void ViewModel_SelectedNoteChanged(object sender, EventArgs e)
 		{
-			// 更新选择的笔记时，可以在这里进行处理
+			// 待處理，但不處理也暫時沒影響
 		}
 
 
@@ -77,7 +77,6 @@ namespace DataRecord.View
 				}
 				else
 				{
-					// 恢复原始值
 					viewModel.SelectedNotebook.Name = originalNotebook.Name;
 				}
 			}
@@ -112,7 +111,6 @@ namespace DataRecord.View
 				}
 				else
 				{
-					// 恢复原始值
 					viewModel.SelectedNote.Title = originalNote.Title;
 					viewModel.SelectedNote.Description = originalNote.Description;
 					viewModel.SelectedNote.ImagePath = originalNote.ImagePath;

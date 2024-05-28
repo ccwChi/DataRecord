@@ -137,18 +137,17 @@ namespace DataRecord.ViewModel
 			{
 				SelectedNote.UpdatedAt = DateTime.Now;
 				DatabaseHelper.Update(SelectedNote);
-				GetNotes(); // 更新資料後重新讀取資料庫
+				GetNotes();
 			}
 			else if (result == false)
 			{
 				DatabaseHelper.Delete(SelectedNote);
 				Notes.Remove(SelectedNote);
 				SelectedNote = null;
-				GetNotes(); // 確保刷新筆記列表
+				GetNotes(); 
 			}
 			else
 			{
-				// 恢復原始值
 				SelectedNote.Title = originalNote.Title;
 				SelectedNote.Description = originalNote.Description;
 				SelectedNote.ImagePath = originalNote.ImagePath;
@@ -170,19 +169,19 @@ namespace DataRecord.ViewModel
 
 			var editNotebookWindow = new EditNotebookWindow(SelectedNotebook)
 			{
-				Owner = Application.Current.MainWindow, // 設置 Owner 屬性
-				WindowStartupLocation = WindowStartupLocation.CenterOwner // 設置為 CenterOwner
+				Owner = Application.Current.MainWindow, 
+				WindowStartupLocation = WindowStartupLocation.CenterOwner 
 			};
 
 			var result = editNotebookWindow.ShowDialog();
 			if (result == true)
 			{
 				DatabaseHelper.Update(SelectedNotebook);
-				GetNotebooks(); // 更新資料後重新讀取資料庫
+				GetNotebooks(); 
 			}
 			else
 			{
-				// 恢復原始值
+
 				SelectedNotebook.Id = originalNotebook.Id;
 				SelectedNotebook.UserId = originalNotebook.UserId;
 				SelectedNotebook.Name = originalNotebook.Name;
